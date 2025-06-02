@@ -1,0 +1,26 @@
+server:
+  port: 8080 # 网关监听的端口
+
+
+spring:
+  application:
+    name: ghost-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
+          enabled: true
+      routes:
+        - id: ghost-system # 路由ID
+          uri: lb://ghost-system # 目标服务地址
+          #uri: http://localhost:8090
+          predicates:
+            - Path=/system/** # 匹配路径规则
+          filters:
+            - StripPrefix=1 # 去掉匹配路径前缀
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:17001/eureka
