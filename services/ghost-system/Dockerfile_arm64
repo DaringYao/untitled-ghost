@@ -1,0 +1,9 @@
+FROM arm64v8/openjdk:8u121-jre-alpine
+MAINTAINER lizbl<yls199715@163.com>
+
+ENV JAR_NAME="ghost-system-1.0-SNAPSHOT.jar"
+COPY target/$JAR_NAME /ghost/$JAR_NAME
+
+WORKDIR /ghost
+
+CMD java -server -Xms${JVM_XMS} -Xms${JVM_XMX} -jar $JAR_NAME
