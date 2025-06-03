@@ -1,0 +1,21 @@
+server:
+  port: 18001
+spring:
+  application:
+    name: ghost-flowable
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ghost?currentSchema=ghost_flowable&stringtype=unspecified
+    username: postgres
+    password: Root123@
+    driver-class-name: org.postgresql.Driver
+flowable:
+  # 关闭定时任务JOB
+  async-executor-activate: false
+  # 在引擎启动时，如果数据库架构与 Flowable 引擎期望的架构不一致，Flowable 会自动更新数据库架构。这包括创建缺失的表和列，以及修改现有的表和列以匹配最新版本
+  database-schema-update: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:17001/eureka
+

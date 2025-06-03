@@ -12,8 +12,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class SupportGatewayApplication {
+public class GhosttGatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SupportGatewayApplication.class, args);
+        SpringApplication.run(GhosttGatewayApplication.class, args);
     }
 }
