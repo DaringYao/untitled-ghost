@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("/workflow")
 public class WorkflowController {
 
-    @Autowired
-    private FlowableService flowableService;
+    private final FlowableService flowableService;
+
+    public WorkflowController(FlowableService flowableService) {
+        this.flowableService = flowableService;
+    }
 
     @GetMapping("/deploy")
     public String deployProcess() {

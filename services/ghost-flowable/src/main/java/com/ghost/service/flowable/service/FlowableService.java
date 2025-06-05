@@ -10,7 +10,6 @@ import org.flowable.engine.runtime.ProcessInstance;
 import org.flowable.engine.runtime.ProcessInstanceQuery;
 import org.flowable.task.api.Task;
 import org.flowable.task.api.TaskQuery;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,17 +17,20 @@ import java.util.List;
 @Service
 public class FlowableService {
 
-    @Autowired
-    private RepositoryService repositoryService;
+    private final RepositoryService repositoryService;
 
-    @Autowired
-    private RuntimeService runtimeService;
+    private final RuntimeService runtimeService;
 
-    @Autowired
-    private TaskService taskService;
+    private final TaskService taskService;
 
-    @Autowired
-    private HistoryService historyService;
+    private final HistoryService historyService;
+
+    public FlowableService(RepositoryService repositoryService, RuntimeService runtimeService, TaskService taskService, HistoryService historyService) {
+        this.repositoryService = repositoryService;
+        this.runtimeService = runtimeService;
+        this.taskService = taskService;
+        this.historyService = historyService;
+    }
 
     // 部署流程定义
     public void deployProcess() {

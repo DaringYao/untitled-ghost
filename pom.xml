@@ -11,6 +11,7 @@
     <modules>
         <module>support</module>
         <module>services</module>
+        <module>ghost-common</module>
     </modules>
 
     <!-- Spring Boot 版本 -->

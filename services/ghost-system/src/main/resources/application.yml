@@ -1,9 +1,15 @@
 server:
-  port: 8090
+  port: 18002
+spring:
+  application:
+    name: ghost-system
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ghost?currentSchema=ghost_system&stringtype=unspecified
+    username: postgres
+    password: Root123@
+    driver-class-name: org.postgresql.Driver
 eureka:
   client:
     service-url:
      defaultZone: http://127.0.0.1:17001/eureka
-spring:
-  application:
-    name: ghost-system
+
